@@ -1,11 +1,11 @@
 package lab7_rodrigovelasquez;
 
 public class Tander extends javax.swing.JFrame {
-
+    
     public Tander() {
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,32 +43,49 @@ public class Tander extends javax.swing.JFrame {
         pf_contra = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
 
+        jd_Registro.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Registro");
+        jd_Registro.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 11, -1, -1));
 
         jLabel6.setText("Usuario");
+        jd_Registro.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 74, -1, -1));
 
         jLabel7.setText("Nombre Completo");
+        jd_Registro.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 43, -1, -1));
 
         jLabel8.setText("Contraseña");
+        jd_Registro.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 106, -1, -1));
+        jd_Registro.getContentPane().add(tf_registroContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 103, 200, -1));
+        jd_Registro.getContentPane().add(tf_registroUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 71, 200, -1));
+        jd_Registro.getContentPane().add(tf_registroNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 40, 243, -1));
 
         jLabel9.setText("Edad");
+        jd_Registro.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 134, -1, -1));
+        jd_Registro.getContentPane().add(tf_registroEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 131, 85, -1));
 
         jLabel10.setText("Sexo");
+        jd_Registro.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 162, -1, -1));
 
         buttonGroup1.add(rb_M);
         rb_M.setText("M");
+        jd_Registro.getContentPane().add(rb_M, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 183, -1, -1));
 
         buttonGroup1.add(rb_F);
         rb_F.setText("F");
+        jd_Registro.getContentPane().add(rb_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 183, -1, -1));
 
         jLabel11.setText("Premium");
+        jd_Registro.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         buttonGroup2.add(rb_M1);
         rb_M1.setText("Si");
+        jd_Registro.getContentPane().add(rb_M1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 236, -1, -1));
 
         buttonGroup2.add(rb_F1);
         rb_F1.setText("No");
+        jd_Registro.getContentPane().add(rb_F1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 236, -1, -1));
 
         jButton2.setText("Guardar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -76,6 +93,7 @@ public class Tander extends javax.swing.JFrame {
                 jButton2MouseClicked(evt);
             }
         });
+        jd_Registro.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 420, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -96,119 +114,19 @@ public class Tander extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jd_Registro.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 40, -1, -1));
+
         jButton3.setText("Seleccionar");
+        jd_Registro.getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 102, -1, -1));
 
         ta_Descripcion.setColumns(20);
         ta_Descripcion.setRows(5);
         jScrollPane1.setViewportView(ta_Descripcion);
 
-        jLabel12.setText("Descripcion");
+        jd_Registro.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 265, 198, 137));
 
-        javax.swing.GroupLayout jd_RegistroLayout = new javax.swing.GroupLayout(jd_Registro.getContentPane());
-        jd_Registro.getContentPane().setLayout(jd_RegistroLayout);
-        jd_RegistroLayout.setHorizontalGroup(
-            jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_RegistroLayout.createSequentialGroup()
-                .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_RegistroLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tf_registroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_RegistroLayout.createSequentialGroup()
-                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jd_RegistroLayout.createSequentialGroup()
-                                .addGap(160, 160, 160)
-                                .addComponent(jLabel5))
-                            .addGroup(jd_RegistroLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jd_RegistroLayout.createSequentialGroup()
-                                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(tf_registroContra)
-                                            .addComponent(tf_registroUser, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                            .addComponent(tf_registroEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton3))
-                                    .addGroup(jd_RegistroLayout.createSequentialGroup()
-                                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel10)
-                                            .addGroup(jd_RegistroLayout.createSequentialGroup()
-                                                .addComponent(rb_M)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(rb_F))
-                                            .addGroup(jd_RegistroLayout.createSequentialGroup()
-                                                .addComponent(rb_M1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(rb_F1))
-                                            .addComponent(jLabel11))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(18, 18, 18)))
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-            .addGroup(jd_RegistroLayout.createSequentialGroup()
-                .addGap(179, 179, 179)
-                .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_RegistroLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(274, 274, 274))
-        );
-        jd_RegistroLayout.setVerticalGroup(
-            jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_RegistroLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addGap(7, 7, 7)
-                .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_RegistroLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rb_M1)
-                            .addComponent(rb_F1)))
-                    .addGroup(jd_RegistroLayout.createSequentialGroup()
-                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(tf_registroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(tf_registroUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(tf_registroContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tf_registroEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rb_M)
-                            .addComponent(rb_F))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel12)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(14, 14, 14))
-        );
+        jLabel12.setText("Descripcion");
+        jd_Registro.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 245, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -275,14 +193,17 @@ public class Tander extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         //registrar el usuario
-
+        this.dispose();
+        jd_Registro.pack();
+        jd_Registro.setLocationRelativeTo(this);
+        jd_Registro.setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         jd_Registro.dispose();
         this.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
-
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -291,7 +212,7 @@ public class Tander extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows Classic".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
