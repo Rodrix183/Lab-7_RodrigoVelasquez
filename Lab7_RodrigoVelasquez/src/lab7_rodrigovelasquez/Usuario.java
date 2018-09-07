@@ -2,18 +2,24 @@ package lab7_rodrigovelasquez;
 
 import java.awt.Image;
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.swing.Icon;
 
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
 
-private String nombre;
-private String user;
-private String pass;
-private int edad;
-private String sexo;
-private String premium;
-private Icon img;
-private String descripcion;
+    private String nombre;
+    private String user;
+    private String pass;
+    private int edad;
+    private String sexo;
+    private String premium;
+    private Icon img;
+    private String descripcion;
+    private ArrayList<Cita> lista_citas = new ArrayList<>();
+    private ArrayList<Usuario> lista_block = new ArrayList<>();
+    private ArrayList<Usuario> lista_agregas = new ArrayList<>();
+    private ArrayList<Usuario> lista_interesados = new ArrayList<>();
+    private ArrayList<String> lista_mensajes = new ArrayList<>();
 
     public Usuario() {
     }
@@ -28,8 +34,6 @@ private String descripcion;
         this.img = img;
         this.descripcion = descripcion;
     }
-
-
 
     public String getNombre() {
         return nombre;
@@ -87,10 +91,25 @@ private String descripcion;
         this.descripcion = descripcion;
     }
 
+    public Icon getImg() {
+        return img;
+    }
+
+    public void setImg(Icon img) {
+        this.img = img;
+    }
+
+    public ArrayList<Cita> getLista_citas() {
+        return lista_citas;
+    }
+
+    public void setLista_citas(ArrayList<Cita> lista_citas) {
+        this.lista_citas = lista_citas;
+    }
+
     @Override
     public String toString() {
         return nombre;
     }
-
 
 }
