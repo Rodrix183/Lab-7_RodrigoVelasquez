@@ -396,13 +396,21 @@ public class Tander extends javax.swing.JFrame {
 
         if (val == true) {
             //lista_usuarios.add(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
-            Usuario u = new Usuario(name, user, pass, age, sexo, premium, icono, descrip);
+            Usuario u = new Usuario(name, user, pass, age, sexo, premium, lb_foto.getIcon(), descrip);
             AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
+            au.cargarArchivo();
+            au.setUsuario(u);
+            au.escribirArchivo();
             
             DefaultListModel modelo_lista = (DefaultListModel) jl_TodosUsuarios.getModel();
             
             //guardar en archivos binarios
-            modelo_lista.addElement(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
+            modelo_lista.addElement(new Usuario(name, user, pass, age, sexo, premium, lb_foto.getIcon(), descrip));
+            tf_registroNombre.setText("");
+            tf_registroUser.setText("");
+            tf_registroContra.setText("");
+            tf_registroEdad.setText("");
+            
             JOptionPane.showMessageDialog(jd_Registro, "Registro Exitoso!");
             this.setVisible(true);
         } else {
@@ -422,8 +430,7 @@ public class Tander extends javax.swing.JFrame {
             if (op == JFileChooser.APPROVE_OPTION) {
                 archivo = jfc.getSelectedFile();
                 Image foto = Toolkit.getDefaultToolkit().createImage(archivo.getPath()).getScaledInstance(150, 150, 0);
-                this.lb_foto.setIcon(new ImageIcon(foto));
-                icono = foto;
+                this.lb_foto.setIcon(new ImageIcon(foto));               
             }
         } catch (Exception e) {
         }
@@ -521,6 +528,5 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JTextField tf_registroUser;
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
-Image icono = null;
     ArrayList<Usuario> lista_usuarios = new ArrayList<>();
 }

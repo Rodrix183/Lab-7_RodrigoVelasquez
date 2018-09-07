@@ -2,6 +2,7 @@ package lab7_rodrigovelasquez;
 
 import java.awt.Image;
 import java.io.Serializable;
+import javax.swing.Icon;
 
 public class Usuario implements Serializable{
 
@@ -11,13 +12,13 @@ private String pass;
 private int edad;
 private String sexo;
 private String premium;
-private Image img;
+private Icon img;
 private String descripcion;
 
     public Usuario() {
     }
 
-    public Usuario(String nombre, String user, String pass, int edad, String sexo, String premium, Image img, String descripcion) {
+    public Usuario(String nombre, String user, String pass, int edad, String sexo, String premium, Icon img, String descripcion) {
         this.nombre = nombre;
         this.user = user;
         this.pass = pass;
@@ -27,6 +28,8 @@ private String descripcion;
         this.img = img;
         this.descripcion = descripcion;
     }
+
+
 
     public String getNombre() {
         return nombre;
@@ -74,14 +77,6 @@ private String descripcion;
 
     public void setPremium(String premium) {
         this.premium = premium;
-    }
-
-    public Image getImg() {
-        return img;
-    }
-
-    public void setImg(Image img) {
-        this.img = img;
     }
 
     public String getDescripcion() {
