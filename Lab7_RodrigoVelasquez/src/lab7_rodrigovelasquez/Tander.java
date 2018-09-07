@@ -1,11 +1,18 @@
 package lab7_rodrigovelasquez;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 public class Tander extends javax.swing.JFrame {
-    
+
     public Tander() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -117,6 +124,11 @@ public class Tander extends javax.swing.JFrame {
         jd_Registro.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 40, -1, -1));
 
         jButton3.setText("Seleccionar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jd_Registro.getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 102, -1, -1));
 
         ta_Descripcion.setColumns(20);
@@ -203,7 +215,24 @@ public class Tander extends javax.swing.JFrame {
         jd_Registro.dispose();
         this.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
-    
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        try {
+            JFileChooser jfc = new JFileChooser();
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imagen", "jpg", "png", "jpeg", "gif");
+            jfc.setFileFilter(filtro);
+            File archivo = null;
+            int op = jfc.showOpenDialog(jd_Registro);
+            if (op == JFileChooser.APPROVE_OPTION) {
+                archivo = jfc.getSelectedFile();
+                Image foto = Toolkit.getDefaultToolkit().createImage(archivo.getPath()).getScaledInstance(150, 150, 0);
+                this.lb_foto.setIcon(new ImageIcon(foto));
+                icono = foto;
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -270,4 +299,5 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JTextField tf_registroUser;
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
+Image icono = null;
 }
