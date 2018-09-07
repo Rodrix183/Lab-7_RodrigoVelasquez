@@ -3,8 +3,10 @@ package lab7_rodrigovelasquez;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Tander extends javax.swing.JFrame {
@@ -31,8 +33,8 @@ public class Tander extends javax.swing.JFrame {
         rb_M = new javax.swing.JRadioButton();
         rb_F = new javax.swing.JRadioButton();
         jLabel11 = new javax.swing.JLabel();
-        rb_M1 = new javax.swing.JRadioButton();
-        rb_F1 = new javax.swing.JRadioButton();
+        rb_Si = new javax.swing.JRadioButton();
+        rb_No = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lb_foto = new javax.swing.JLabel();
@@ -86,13 +88,13 @@ public class Tander extends javax.swing.JFrame {
         jLabel11.setText("Premium");
         jd_Registro.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
-        buttonGroup2.add(rb_M1);
-        rb_M1.setText("Si");
-        jd_Registro.getContentPane().add(rb_M1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 236, -1, -1));
+        buttonGroup2.add(rb_Si);
+        rb_Si.setText("Si");
+        jd_Registro.getContentPane().add(rb_Si, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 236, -1, -1));
 
-        buttonGroup2.add(rb_F1);
-        rb_F1.setText("No");
-        jd_Registro.getContentPane().add(rb_F1, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 236, -1, -1));
+        buttonGroup2.add(rb_No);
+        rb_No.setText("No");
+        jd_Registro.getContentPane().add(rb_No, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 236, -1, -1));
 
         jButton2.setText("Guardar");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -213,6 +215,27 @@ public class Tander extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         jd_Registro.dispose();
+        String name = "", user = "", pass = "", descrip = "", sexo = "M", premium = "No";
+        int age = 0;
+        name = tf_registroNombre.getText();
+        user = tf_registroUser.getText();
+        pass = tf_registroContra.getText();
+        descrip = ta_Descripcion.getText();
+        if (rb_M.isSelected()) {
+            sexo = "M";
+        } else {
+            sexo = "F";
+        }
+
+        if (rb_Si.isSelected()) {
+            premium = "Si";
+        } else {
+            premium = "No";
+        }
+
+        age = Integer.parseInt(tf_registroEdad.getText());
+        lista_usuarios.add(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
+        JOptionPane.showMessageDialog(jd_Registro, "Registro Exitoso!");
         this.setVisible(true);
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -289,9 +312,9 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JLabel lb_foto;
     private javax.swing.JPasswordField pf_contra;
     private javax.swing.JRadioButton rb_F;
-    private javax.swing.JRadioButton rb_F1;
     private javax.swing.JRadioButton rb_M;
-    private javax.swing.JRadioButton rb_M1;
+    private javax.swing.JRadioButton rb_No;
+    private javax.swing.JRadioButton rb_Si;
     private javax.swing.JTextArea ta_Descripcion;
     private javax.swing.JTextField tf_registroContra;
     private javax.swing.JTextField tf_registroEdad;
@@ -300,4 +323,5 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
 Image icono = null;
+    ArrayList<Usuario> lista_usuarios = new ArrayList<>();
 }
