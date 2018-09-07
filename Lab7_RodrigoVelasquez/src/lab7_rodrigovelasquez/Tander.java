@@ -44,6 +44,12 @@ public class Tander extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        jd_VentanaTander = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -142,6 +148,69 @@ public class Tander extends javax.swing.JFrame {
         jLabel12.setText("Descripcion");
         jd_Registro.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 245, -1, -1));
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 697, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 431, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Usuarios", jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 697, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 431, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Solicitudes", jPanel3);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 697, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 431, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Bloqueados", jPanel4);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 697, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 431, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Interesados", jPanel5);
+
+        javax.swing.GroupLayout jd_VentanaTanderLayout = new javax.swing.GroupLayout(jd_VentanaTander.getContentPane());
+        jd_VentanaTander.getContentPane().setLayout(jd_VentanaTanderLayout);
+        jd_VentanaTanderLayout.setHorizontalGroup(
+            jd_VentanaTanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+        jd_VentanaTanderLayout.setVerticalGroup(
+            jd_VentanaTanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -152,6 +221,11 @@ public class Tander extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
 
         jButton1.setText("Login");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jLabel4.setText("Registrar Aca!");
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -215,6 +289,7 @@ public class Tander extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         jd_Registro.dispose();
+        boolean val = false;
         String name = "", user = "", pass = "", descrip = "", sexo = "M", premium = "No";
         int age = 0;
         name = tf_registroNombre.getText();
@@ -234,9 +309,22 @@ public class Tander extends javax.swing.JFrame {
         }
 
         age = Integer.parseInt(tf_registroEdad.getText());
-        lista_usuarios.add(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
-        JOptionPane.showMessageDialog(jd_Registro, "Registro Exitoso!");
-        this.setVisible(true);
+        if (tf_registroNombre.equals(null) || tf_registroContra.equals(null) || tf_registroUser.equals(null)
+                || tf_registroEdad.equals(null) || ta_Descripcion.equals(null)) {
+            val = false;
+        } else {
+            val = true;
+        }
+
+        if (val == true) {
+            lista_usuarios.add(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
+            JOptionPane.showMessageDialog(jd_Registro, "Registro Exitoso!");
+            this.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(jd_Registro, "Campos Vacios!");
+        }
+
+
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
@@ -255,6 +343,18 @@ public class Tander extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        for (Usuario user : lista_usuarios) {
+            if (tf_user.getText().equals(user.getUser()) && pf_contra.getText().equals(user.getPass())) {
+                jd_VentanaTander.pack();
+                jd_VentanaTander.setLocationRelativeTo(this);
+                jd_VentanaTander.setVisible(true);
+            }else{
+            JOptionPane.showMessageDialog(this, "Datos Erroneos");
+            }
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -307,8 +407,14 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_Registro;
+    private javax.swing.JDialog jd_VentanaTander;
     private javax.swing.JLabel lb_foto;
     private javax.swing.JPasswordField pf_contra;
     private javax.swing.JRadioButton rb_F;
