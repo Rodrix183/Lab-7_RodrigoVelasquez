@@ -2,8 +2,11 @@ package lab7_rodrigovelasquez;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -47,9 +50,17 @@ public class Tander extends javax.swing.JFrame {
         jd_VentanaTander = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_TodosUsuarios = new javax.swing.JList<>();
+        jToolBar1 = new javax.swing.JToolBar();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -148,15 +159,41 @@ public class Tander extends javax.swing.JFrame {
         jLabel12.setText("Descripcion");
         jd_Registro.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 245, -1, -1));
 
+        jl_TodosUsuarios.setModel(new DefaultListModel()
+        );
+        jScrollPane2.setViewportView(jl_TodosUsuarios);
+
+        jToolBar1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jToolBar1.setRollover(true);
+
+        jButton4.setText("Agregar Amigo");
+        jToolBar1.add(jButton4);
+
+        jButton5.setText("Ver Detalles");
+        jButton5.setFocusable(false);
+        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton5);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 697, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(318, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 431, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Usuarios", jPanel2);
@@ -199,6 +236,45 @@ public class Tander extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Interesados", jPanel5);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 697, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 431, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Inbox", jPanel6);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 697, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 431, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Agenda", jPanel7);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 697, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 431, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Opciones", jPanel8);
 
         javax.swing.GroupLayout jd_VentanaTanderLayout = new javax.swing.GroupLayout(jd_VentanaTander.getContentPane());
         jd_VentanaTander.getContentPane().setLayout(jd_VentanaTanderLayout);
@@ -290,25 +366,27 @@ public class Tander extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         jd_Registro.dispose();
         boolean val = false;
-        String name = "", user = "", pass = "", descrip = "", sexo = "M", premium = "No";
-        int age = 0;
-        name = tf_registroNombre.getText();
-        user = tf_registroUser.getText();
-        pass = tf_registroContra.getText();
-        descrip = ta_Descripcion.getText();
+//        String name = "", user = "", pass = "", descrip = "", sexo = "M", premium = "No";
+//        int age = 0;
+        String name = tf_registroNombre.getText();
+        String user = tf_registroUser.getText();
+        String pass = tf_registroContra.getText();
+        String descrip = ta_Descripcion.getText();
+        String sexo = null;
         if (rb_M.isSelected()) {
             sexo = "M";
         } else {
             sexo = "F";
         }
 
+        String premium = null;
         if (rb_Si.isSelected()) {
             premium = "Si";
         } else {
             premium = "No";
         }
 
-        age = Integer.parseInt(tf_registroEdad.getText());
+        int age = Integer.parseInt(tf_registroEdad.getText());
         if (tf_registroNombre.equals(null) || tf_registroContra.equals(null) || tf_registroUser.equals(null)
                 || tf_registroEdad.equals(null) || ta_Descripcion.equals(null)) {
             val = false;
@@ -317,7 +395,14 @@ public class Tander extends javax.swing.JFrame {
         }
 
         if (val == true) {
-            lista_usuarios.add(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
+            //lista_usuarios.add(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
+            Usuario u = new Usuario(name, user, pass, age, sexo, premium, icono, descrip);
+            AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
+            
+            DefaultListModel modelo_lista = (DefaultListModel) jl_TodosUsuarios.getModel();
+            
+            //guardar en archivos binarios
+            modelo_lista.addElement(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
             JOptionPane.showMessageDialog(jd_Registro, "Registro Exitoso!");
             this.setVisible(true);
         } else {
@@ -394,6 +479,8 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -411,10 +498,16 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JDialog jd_Registro;
     private javax.swing.JDialog jd_VentanaTander;
+    private javax.swing.JList<String> jl_TodosUsuarios;
     private javax.swing.JLabel lb_foto;
     private javax.swing.JPasswordField pf_contra;
     private javax.swing.JRadioButton rb_F;
