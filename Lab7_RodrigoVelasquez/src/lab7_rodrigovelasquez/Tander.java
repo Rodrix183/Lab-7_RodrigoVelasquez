@@ -53,7 +53,7 @@ public class Tander extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jd_VentanaTander = new javax.swing.JDialog();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jtp_MENU = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jl_ListaSolicitudes = new javax.swing.JList<>();
@@ -215,6 +215,12 @@ public class Tander extends javax.swing.JFrame {
 
         jd_Registro.getContentPane().add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 490));
 
+        jtp_MENU.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jtp_MENUStateChanged(evt);
+            }
+        });
+
         jl_ListaSolicitudes.setModel(new DefaultListModel()
         );
         jScrollPane6.setViewportView(jl_ListaSolicitudes);
@@ -245,7 +251,7 @@ public class Tander extends javax.swing.JFrame {
                 .addContainerGap(115, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Solicitudes", jPanel3);
+        jtp_MENU.addTab("Solicitudes", jPanel3);
 
         jl_ListaBloqueados.setModel(new DefaultListModel()
         );
@@ -274,7 +280,7 @@ public class Tander extends javax.swing.JFrame {
                 .addContainerGap(116, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Bloqueados", jPanel4);
+        jtp_MENU.addTab("Bloqueados", jPanel4);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -287,7 +293,7 @@ public class Tander extends javax.swing.JFrame {
             .addGap(0, 431, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Interesados", jPanel5);
+        jtp_MENU.addTab("Interesados", jPanel5);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -300,7 +306,7 @@ public class Tander extends javax.swing.JFrame {
             .addGap(0, 431, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Inbox", jPanel6);
+        jtp_MENU.addTab("Inbox", jPanel6);
 
         jButton8.setText("Crear Cita");
         jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -362,7 +368,7 @@ public class Tander extends javax.swing.JFrame {
                 .addContainerGap(103, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Agenda", jPanel7);
+        jtp_MENU.addTab("Agenda", jPanel7);
 
         jButton6.setText("Logout");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -394,7 +400,7 @@ public class Tander extends javax.swing.JFrame {
                 .addContainerGap(161, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Opciones", jPanel8);
+        jtp_MENU.addTab("Opciones", jPanel8);
 
         jl_TodosUsuarios.setModel(new DefaultListModel()
         );
@@ -488,17 +494,17 @@ public class Tander extends javax.swing.JFrame {
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Usuarios", jPanel2);
+        jtp_MENU.addTab("Usuarios", jPanel2);
 
         javax.swing.GroupLayout jd_VentanaTanderLayout = new javax.swing.GroupLayout(jd_VentanaTander.getContentPane());
         jd_VentanaTander.getContentPane().setLayout(jd_VentanaTanderLayout);
         jd_VentanaTanderLayout.setHorizontalGroup(
             jd_VentanaTanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jtp_MENU)
         );
         jd_VentanaTanderLayout.setVerticalGroup(
             jd_VentanaTanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jtp_MENU, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jmi_Eliminar.setText("jMenuItem1");
@@ -587,25 +593,31 @@ public class Tander extends javax.swing.JFrame {
         String user = tf_registroUser.getText();
         String pass = tf_registroContra.getText();
         String descrip = ta_Descripcion.getText();
-        String sexo = null;
+        String sexo = "";
         if (rb_M.isSelected()) {
             sexo = "M";
-        } else {
+        } else if (rb_F.isSelected()) {
             sexo = "F";
+        } else {
+            sexo = "";
         }
 
         String premium = null;
         if (rb_Si.isSelected()) {
             premium = "Si";
-        } else {
+        } else if (rb_No.isSelected()) {
             premium = "No";
+        } else {
+            premium = "";
         }
 
         int age = Integer.parseInt(tf_registroEdad.getText());
         if (age < 18) {
             val = false;
+        } else {
+            val = true;
         }
-        
+
         if (tf_registroNombre.getText() != "" && tf_registroContra.getText() != "" && tf_registroUser.getText() != ""
                 && tf_registroEdad.getText() != "" && ta_Descripcion.getText() != "" && tf_Intereses.getText() != "") {
             val = false;
@@ -614,6 +626,8 @@ public class Tander extends javax.swing.JFrame {
             val = true;
         }
 
+        System.out.println(""+name+""
+                + "\n"+user+ "\n"+pass+ "\n"+sexo+ "\n"+premium+ "\n"+descrip);
         if (val == true) {
             //lista_usuarios.add(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
             Usuario u = new Usuario(name, user, pass, age, sexo, premium, lb_foto.getIcon(), descrip);
@@ -666,13 +680,7 @@ public class Tander extends javax.swing.JFrame {
                 jd_VentanaTander.pack();
                 jd_VentanaTander.setLocationRelativeTo(this);
                 jd_VentanaTander.setVisible(true);
-                DefaultListModel modelo_lista = (DefaultListModel) jl_TodosUsuarios.getModel();
 
-                //meter todos los usuarios
-                Usuario u;
-                for (int i = 0; i < au.getLista_usuarios().size(); i++) {
-                    modelo_lista.addElement(au.getLista_usuarios().get(i));
-                }
             } else {
                 //JOptionPane.showMessageDialog(this, "Datos Erroneos");
             }
@@ -765,6 +773,18 @@ public class Tander extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton12MouseClicked
 
+    private void jtp_MENUStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtp_MENUStateChanged
+        if (jtp_MENU.getSelectedIndex() == 6) {
+            DefaultListModel modelo_lista = (DefaultListModel) jl_TodosUsuarios.getModel();
+            AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
+            //meter todos los usuarios
+            //Usuario u;
+            for (Usuario u : au.getLista_usuarios()) {
+                modelo_lista.addElement(u);
+            }
+        }
+    }//GEN-LAST:event_jtp_MENUStateChanged
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -845,7 +865,6 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JDialog jd_Registro;
     private javax.swing.JDialog jd_VentanaTander;
@@ -856,6 +875,7 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JList<String> jl_ListaSolicitudes;
     private javax.swing.JList<String> jl_TodosUsuarios;
     private javax.swing.JMenuItem jmi_Eliminar;
+    private javax.swing.JTabbedPane jtp_MENU;
     private javax.swing.JLabel lb_foto;
     private javax.swing.JPasswordField pf_contra;
     private javax.swing.JRadioButton rb_F;
