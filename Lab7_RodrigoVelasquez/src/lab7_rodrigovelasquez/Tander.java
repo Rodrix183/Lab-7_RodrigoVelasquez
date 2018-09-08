@@ -131,6 +131,12 @@ public class Tander extends javax.swing.JFrame {
         tf_modifEdad = new javax.swing.JTextField();
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
+        jd_OUTBOX = new javax.swing.JDialog();
+        jButton17 = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        cb_Friends = new javax.swing.JComboBox<>();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        ta_MSJ = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -426,6 +432,11 @@ public class Tander extends javax.swing.JFrame {
         jtp_MENU.addTab("Bloqueados", jPanel4);
 
         jButton14.setText("Redactar Mensaje");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton14MouseClicked(evt);
+            }
+        });
 
         jl_INBOX.setModel(new DefaultListModel()
         );
@@ -744,6 +755,55 @@ public class Tander extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
+        );
+
+        jButton17.setText("Enviar");
+        jButton17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton17MouseClicked(evt);
+            }
+        });
+
+        jLabel28.setText("Mensaje");
+
+        ta_MSJ.setColumns(20);
+        ta_MSJ.setRows(5);
+        jScrollPane9.setViewportView(ta_MSJ);
+
+        javax.swing.GroupLayout jd_OUTBOXLayout = new javax.swing.GroupLayout(jd_OUTBOX.getContentPane());
+        jd_OUTBOX.getContentPane().setLayout(jd_OUTBOXLayout);
+        jd_OUTBOXLayout.setHorizontalGroup(
+            jd_OUTBOXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_OUTBOXLayout.createSequentialGroup()
+                .addGroup(jd_OUTBOXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_OUTBOXLayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(jButton17))
+                    .addGroup(jd_OUTBOXLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel28)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_OUTBOXLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(cb_Friends, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jd_OUTBOXLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        jd_OUTBOXLayout.setVerticalGroup(
+            jd_OUTBOXLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_OUTBOXLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(cb_Friends, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel28)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton17)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1192,6 +1252,19 @@ public class Tander extends javax.swing.JFrame {
         jd_Modificar.setVisible(true);
     }//GEN-LAST:event_jButton7MouseClicked
 
+    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
+        jd_OUTBOX.setModal(true);
+        jd_OUTBOX.pack();
+        jd_OUTBOX.setLocationRelativeTo(this);
+        jd_OUTBOX.setVisible(true);
+    }//GEN-LAST:event_jButton14MouseClicked
+
+    private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
+        //enviar mensaje
+        String emisor = actual;
+        String mensaje = ta_MSJ.getText();
+    }//GEN-LAST:event_jButton17MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1230,6 +1303,7 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JComboBox<String> cb_Friends;
     private javax.swing.JComboBox<String> cb_ListaInteresados;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1239,6 +1313,7 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1267,6 +1342,7 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1290,8 +1366,10 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JDialog jd_Modificar;
+    private javax.swing.JDialog jd_OUTBOX;
     private javax.swing.JDialog jd_Registro;
     private javax.swing.JDialog jd_VentanaTander;
     private com.toedter.calendar.JDateChooser jdc_Fecha;
@@ -1315,6 +1393,7 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbn;
     private javax.swing.JRadioButton rbs;
     private javax.swing.JTextArea ta_Descripcion;
+    private javax.swing.JTextArea ta_MSJ;
     private javax.swing.JTextArea ta_modifDes;
     private javax.swing.JTextField tf_ConQuien;
     private javax.swing.JTextField tf_Intereses;

@@ -19,7 +19,7 @@ public class Usuario implements Serializable {
     private ArrayList<Usuario> lista_block = new ArrayList<>();
     private ArrayList<Usuario> lista_agregas = new ArrayList<>();
     private ArrayList<Usuario> lista_interesados = new ArrayList<>();
-    private ArrayList<String> lista_mensajes = new ArrayList<>();
+    private ArrayList<Mensaje> lista_mensajes = new ArrayList<>();
     private ArrayList<String> lista_intereses = new ArrayList<>();
 
     public Usuario() {
@@ -141,13 +141,15 @@ public class Usuario implements Serializable {
         this.lista_interesados = lista_interesados;
     }
 
-    public ArrayList<String> getLista_mensajes() {
+    public ArrayList<Mensaje> getLista_mensajes() {
         return lista_mensajes;
     }
 
-    public void setLista_mensajes(ArrayList<String> lista_mensajes) {
+    public void setLista_mensajes(ArrayList<Mensaje> lista_mensajes) {
         this.lista_mensajes = lista_mensajes;
     }
+
+    
 
     @Override
     public String toString() {
