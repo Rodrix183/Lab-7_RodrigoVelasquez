@@ -15,11 +15,11 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Tander extends javax.swing.JFrame {
-    
+
     public Tander() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -583,8 +583,6 @@ public class Tander extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         jd_Registro.dispose();
         boolean val = false;
-//        String name = "", user = "", pass = "", descrip = "", sexo = "M", premium = "No";
-//        int age = 0;
         String name = tf_registroNombre.getText();
         String user = tf_registroUser.getText();
         String pass = tf_registroContra.getText();
@@ -595,22 +593,27 @@ public class Tander extends javax.swing.JFrame {
         } else {
             sexo = "F";
         }
-        
+
         String premium = null;
         if (rb_Si.isSelected()) {
             premium = "Si";
         } else {
             premium = "No";
         }
-        
+
         int age = Integer.parseInt(tf_registroEdad.getText());
-        if (tf_registroNombre.equals(null) || tf_registroContra.equals(null) || tf_registroUser.equals(null)
-                || tf_registroEdad.equals(null) || ta_Descripcion.equals(null)) {
+        if (age < 18) {
             val = false;
-        } else {
-            val = true;
         }
         
+        if (tf_registroNombre.getText() != "" && tf_registroContra.getText() != "" && tf_registroUser.getText() != ""
+                && tf_registroEdad.getText() != "" && ta_Descripcion.getText() != "" && tf_Intereses.getText() != "") {
+            val = false;
+        } else {
+            JOptionPane.showMessageDialog(jd_Registro, "Es menor de edad");
+            val = true;
+        }
+
         if (val == true) {
             //lista_usuarios.add(new Usuario(name, user, pass, age, sexo, premium, icono, descrip));
             Usuario u = new Usuario(name, user, pass, age, sexo, premium, lb_foto.getIcon(), descrip);
@@ -619,7 +622,7 @@ public class Tander extends javax.swing.JFrame {
             au.cargarArchivo();
             au.setUsuario(u);
             au.escribirArchivo();
-            
+
             tf_registroNombre.setText("");
             tf_registroUser.setText("");
             tf_registroContra.setText("");
@@ -629,10 +632,11 @@ public class Tander extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(jd_Registro, "Registro Exitoso!");
             this.setVisible(true);
-        } else {
+        } else if (val == false) {
             JOptionPane.showMessageDialog(jd_Registro, "Campos Vacios!");
+            this.setVisible(true);
         }
-        
+
 
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -702,7 +706,7 @@ public class Tander extends javax.swing.JFrame {
             DefaultListModel modelo = (DefaultListModel) jl_TodosUsuarios.getModel();
             DefaultListModel modeloAmigos = (DefaultListModel) jl_ListaAmigos.getModel();
             AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
-            
+
             au.cargarArchivo();
             for (Usuario us : au.getLista_usuarios()) {
                 if (us.equals(actual)) {
@@ -757,10 +761,10 @@ public class Tander extends javax.swing.JFrame {
         au.getLista_usuarios().get(jl_ListaAmigos.getSelectedIndex()).getLista_block().add(
                 new Usuario(nombre, user, pass, edad, sexo, premium, imagen, descripcion));
         au.getLista_usuarios().remove(jl_ListaAmigos.getSelectedIndex());
-        
+
 
     }//GEN-LAST:event_jButton12MouseClicked
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
