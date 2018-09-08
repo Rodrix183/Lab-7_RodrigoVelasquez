@@ -28,6 +28,8 @@ public class Tander extends javax.swing.JFrame {
         for (int i = 0; i < au.getLista_usuarios().size(); i++) {
             modelo_lista.addElement(au.getLista_usuarios().get(i).toString());
         }
+        
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -1068,7 +1070,9 @@ public class Tander extends javax.swing.JFrame {
             DefaultListModel modeloAmigos = (DefaultListModel) jl_ListaAmigos.getModel();
             AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
             au.cargarArchivo();
-
+            String emisor = actual;
+            String receptor = modelo.get(jl_TodosUsuarios.getSelectedIndex()).toString();
+            
             String nombre = au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()).getNombre();
             String user = au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()).getUser();
             String pass = au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()).getPass();
@@ -1077,9 +1081,15 @@ public class Tander extends javax.swing.JFrame {
             String premium = au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()).getPremium();
             Icon imagen = au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()).getImg();
             String descripcion = au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()).getDescripcion();
-            
-            modelo.addElement(au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()).getLista_agregas().add(new Usuario(nombre, user, pass, edad, sexo, premium, imagen, descripcion)));
-            modeloAmigos.addElement(au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()));
+            for (Usuario us : au.getLista_usuarios()) {
+                if (us.equals(receptor)) {                    
+                    us.getLista_agregas().add(new Usuario(nombre, user, pass, edad, sexo, premium, imagen, descripcion));
+                    
+                }
+            }
+
+            //  modelo.addElement(au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()).getLista_agregas().add(new Usuario(nombre, user, pass, edad, sexo, premium, imagen, descripcion)));
+//            modeloAmigos.addElement(au.getLista_usuarios().get(jl_TodosUsuarios.getSelectedIndex()));
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
@@ -1116,9 +1126,11 @@ public class Tander extends javax.swing.JFrame {
         // Modificar
         AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
         au.cargarArchivo();
+
         for (Usuario u : au.getLista_usuarios()) {
             if (u.equals(actual)) {
                 tf_modifName.setText(u.getNombre());
+                System.out.println(u.getNombre());
                 tf_modifUser.setText(u.getUser());
                 tf_modifPass.setText(u.getPass());
                 ta_modifDes.setText(u.getDescripcion());
@@ -1137,7 +1149,7 @@ public class Tander extends javax.swing.JFrame {
                 }
             }
         }
-
+        
         boolean val = false;
         String name = tf_modifName.getText();
         String user = tf_modifUser.getText();
@@ -1212,11 +1224,11 @@ public class Tander extends javax.swing.JFrame {
 
             au.escribirArchivo();
 
-            tf_registroNombre.setText("");
-            tf_registroUser.setText("");
-            tf_registroContra.setText("");
-            tf_registroEdad.setText("");
-            ta_Descripcion.setText("");
+//            tf_registroNombre.setText("");
+//            tf_registroUser.setText("");
+//            tf_registroContra.setText("");
+//            tf_registroEdad.setText("");
+//            ta_Descripcion.setText("");
             //tf_Intereses.setText("");
 //            System.out.println("" + name + ""
 //                    + "\n" + user + "\n" + pass + "\n" + sexo + "\n" + premium + "\n" + descrip);
@@ -1226,7 +1238,7 @@ public class Tander extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(jd_Registro, "Campos Vacios!");
             this.setVisible(true);
         }
-        jd_Registro.dispose();
+        jd_Modificar.dispose();
     }//GEN-LAST:event_jButton15MouseClicked
 
     private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
@@ -1262,7 +1274,15 @@ public class Tander extends javax.swing.JFrame {
     private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
         //enviar mensaje
         String emisor = actual;
+        String receptor = (String) cb_Friends.getSelectedItem();
         String mensaje = ta_MSJ.getText();
+        AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
+        au.cargarArchivo();
+        for (Usuario us : au.getLista_usuarios()) {
+            if (us.equals(receptor)) {
+                us.getLista_mensajes().add(new Mensaje(emisor, receptor, mensaje));
+            }
+        }
     }//GEN-LAST:event_jButton17MouseClicked
 
     public static void main(String args[]) {
