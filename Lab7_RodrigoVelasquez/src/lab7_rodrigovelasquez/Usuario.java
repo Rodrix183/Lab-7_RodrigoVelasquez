@@ -20,6 +20,7 @@ public class Usuario implements Serializable {
     private ArrayList<Usuario> lista_agregas = new ArrayList<>();
     private ArrayList<Usuario> lista_interesados = new ArrayList<>();
     private ArrayList<String> lista_mensajes = new ArrayList<>();
+    private ArrayList<String> lista_intereses = new ArrayList<>();
 
     public Usuario() {
     }
@@ -33,6 +34,15 @@ public class Usuario implements Serializable {
         this.premium = premium;
         this.img = img;
         this.descripcion = descripcion;
+
+    }
+
+    public ArrayList<String> getLista_intereses() {
+        return lista_intereses;
+    }
+
+    public void setLista_intereses(ArrayList<String> lista_intereses) {
+        this.lista_intereses = lista_intereses;
     }
 
     public String getNombre() {
@@ -105,6 +115,38 @@ public class Usuario implements Serializable {
 
     public void setLista_citas(ArrayList<Cita> lista_citas) {
         this.lista_citas = lista_citas;
+    }
+
+    public ArrayList<Usuario> getLista_block() {
+        return lista_block;
+    }
+
+    public void setLista_block(ArrayList<Usuario> lista_block) {
+        this.lista_block = lista_block;
+    }
+
+    public ArrayList<Usuario> getLista_agregas() {
+        return lista_agregas;
+    }
+
+    public void setLista_agregas(ArrayList<Usuario> lista_agregas) {
+        this.lista_agregas = lista_agregas;
+    }
+
+    public ArrayList<Usuario> getLista_interesados() {
+        return lista_interesados;
+    }
+
+    public void setLista_interesados(ArrayList<Usuario> lista_interesados) {
+        this.lista_interesados = lista_interesados;
+    }
+
+    public ArrayList<String> getLista_mensajes() {
+        return lista_mensajes;
+    }
+
+    public void setLista_mensajes(ArrayList<String> lista_mensajes) {
+        this.lista_mensajes = lista_mensajes;
     }
 
     @Override

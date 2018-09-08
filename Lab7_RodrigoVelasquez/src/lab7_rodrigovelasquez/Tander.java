@@ -47,16 +47,12 @@ public class Tander extends javax.swing.JFrame {
         ta_Descripcion = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        tf_Intereses = new javax.swing.JTextField();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jd_VentanaTander = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jl_TodosUsuarios = new javax.swing.JList<>();
-        jToolBar1 = new javax.swing.JToolBar();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -74,6 +70,18 @@ public class Tander extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_TodosUsuarios = new javax.swing.JList<>();
+        jToolBar1 = new javax.swing.JToolBar();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jl_ListaAmigos = new javax.swing.JList<>();
+        jLabel16 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        CRUD = new javax.swing.JPopupMenu();
+        jmi_Eliminar = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -174,62 +182,30 @@ public class Tander extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(0, 255, 255));
 
+        jLabel17.setText("Intereses");
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 760, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(437, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(tf_Intereses, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(63, 63, 63))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(245, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_Intereses, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(205, 205, 205))
         );
 
         jd_Registro.getContentPane().add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 490));
-
-        jl_TodosUsuarios.setModel(new DefaultListModel()
-        );
-        jScrollPane2.setViewportView(jl_TodosUsuarios);
-
-        jToolBar1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jToolBar1.setRollover(true);
-
-        jButton4.setText("Agregar Amigo");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
-        jToolBar1.add(jButton4);
-
-        jButton5.setText("Ver Detalles");
-        jButton5.setFocusable(false);
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton5);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(318, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Usuarios", jPanel2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -377,6 +353,92 @@ public class Tander extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Opciones", jPanel8);
 
+        jl_TodosUsuarios.setModel(new DefaultListModel()
+        );
+        jScrollPane2.setViewportView(jl_TodosUsuarios);
+
+        jToolBar1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jToolBar1.setRollover(true);
+
+        jButton4.setText("Agregar Amigo");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jToolBar1.add(jButton4);
+
+        jButton5.setText("Ver Detalles");
+        jButton5.setFocusable(false);
+        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jToolBar1.add(jButton5);
+
+        jl_ListaAmigos.setModel(new DefaultListModel()
+        );
+        jl_ListaAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_ListaAmigosMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jl_ListaAmigos);
+
+        jLabel16.setText("Lista Amigos:");
+
+        jButton9.setText("Eliminar");
+        jButton9.setFocusable(false);
+        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton9.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton9)))
+                .addGap(39, 39, 39))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel16)
+                            .addComponent(jButton9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Usuarios", jPanel2);
+
         javax.swing.GroupLayout jd_VentanaTanderLayout = new javax.swing.GroupLayout(jd_VentanaTander.getContentPane());
         jd_VentanaTander.getContentPane().setLayout(jd_VentanaTanderLayout);
         jd_VentanaTanderLayout.setHorizontalGroup(
@@ -387,6 +449,9 @@ public class Tander extends javax.swing.JFrame {
             jd_VentanaTanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jTabbedPane1)
         );
+
+        jmi_Eliminar.setText("jMenuItem1");
+        CRUD.add(jmi_Eliminar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -508,6 +573,8 @@ public class Tander extends javax.swing.JFrame {
             tf_registroUser.setText("");
             tf_registroContra.setText("");
             tf_registroEdad.setText("");
+            ta_Descripcion.setText("");
+            //tf_Intereses.setText("");
 
             JOptionPane.showMessageDialog(jd_Registro, "Registro Exitoso!");
             this.setVisible(true);
@@ -537,7 +604,7 @@ public class Tander extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
         au.cargarArchivo();
-        String actual = tf_user.getText();
+        actual = tf_user.getText();
         for (Usuario user : au.getLista_usuarios()) {
             if (tf_user.getText().equals(user.getUser()) && pf_contra.getText().equals(user.getPass())) {
                 jd_VentanaTander.setModal(true);
@@ -546,16 +613,13 @@ public class Tander extends javax.swing.JFrame {
                 jd_VentanaTander.setVisible(true);
                 DefaultListModel modelo_lista = (DefaultListModel) jl_TodosUsuarios.getModel();
 
-                //guardar en archivos binarios
-                for (Usuario u : au.getLista_usuarios()) {
-                    if (u.getUser() != actual) {
-                        modelo_lista.addElement(u.getNombre());
-                    }
-
+                //meter todos los usuarios
+                Usuario u;
+                for (int i = 0; i < au.getLista_usuarios().size(); i++) {
+                    modelo_lista.addElement(au.getLista_usuarios().get(i));
                 }
-
             } else {
-                JOptionPane.showMessageDialog(this, "Datos Erroneos");
+                //JOptionPane.showMessageDialog(this, "Datos Erroneos");
             }
         }
     }//GEN-LAST:event_jButton1MouseClicked
@@ -582,8 +646,54 @@ public class Tander extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        //agregar 
+        //agregar amigo
+        if (jl_TodosUsuarios.getSelectedIndex() >= 0) {
+            DefaultListModel modelo = (DefaultListModel) jl_TodosUsuarios.getModel();
+            DefaultListModel modeloAmigos = (DefaultListModel) jl_ListaAmigos.getModel();
+            AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
+
+            au.cargarArchivo();
+            for (Usuario us : au.getLista_usuarios()) {
+                if (us.equals(actual)) {
+                    modeloAmigos.addElement(us.getLista_agregas().add((Usuario) modelo.getElementAt(jl_TodosUsuarios.getSelectedIndex())));
+                }
+            }
+        }
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        //ver detalles de usuario
+        if (jl_TodosUsuarios.getSelectedIndex() >= 0) {
+            DefaultListModel modelo = (DefaultListModel) jl_TodosUsuarios.getModel();
+            AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
+            au.cargarArchivo();
+            for (Usuario us : au.getLista_usuarios()) {
+                if (us.equals(actual)) {
+                    String nombre = us.getNombre();
+                    String user = us.getUser();
+                    int edad = us.getEdad();
+                    String sexo = us.getSexo();
+                    String descripcion = us.getDescripcion();
+                }
+            }
+            JOptionPane.showMessageDialog(jd_VentanaTander, evt);
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jl_ListaAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_ListaAmigosMouseClicked
+        if (evt.isMetaDown()) {
+
+        }
+    }//GEN-LAST:event_jl_ListaAmigosMouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        //eliminar
+        if (jl_ListaAmigos.getSelectedIndex() >= 0) {
+            AdministrarUsuarios au = new AdministrarUsuarios("./usuarios.rdx");
+            DefaultListModel modelo = (DefaultListModel) jl_ListaAmigos.getModel();
+            modelo.removeElement(au.getLista_usuarios().get(jl_ListaAmigos.getSelectedIndex()));
+        }
+    }//GEN-LAST:event_jButton9MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -618,6 +728,7 @@ public class Tander extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPopupMenu CRUD;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
@@ -628,6 +739,7 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -635,6 +747,8 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -655,13 +769,16 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JDialog jd_Registro;
     private javax.swing.JDialog jd_VentanaTander;
     private com.toedter.calendar.JDateChooser jdc_Fecha;
+    private javax.swing.JList<String> jl_ListaAmigos;
     private javax.swing.JList<String> jl_ListaCitas;
     private javax.swing.JList<String> jl_TodosUsuarios;
+    private javax.swing.JMenuItem jmi_Eliminar;
     private javax.swing.JLabel lb_foto;
     private javax.swing.JPasswordField pf_contra;
     private javax.swing.JRadioButton rb_F;
@@ -670,6 +787,7 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_Si;
     private javax.swing.JTextArea ta_Descripcion;
     private javax.swing.JTextField tf_ConQuien;
+    private javax.swing.JTextField tf_Intereses;
     private javax.swing.JTextField tf_LugarCita;
     private javax.swing.JTextField tf_registroContra;
     private javax.swing.JTextField tf_registroEdad;
@@ -678,4 +796,5 @@ public class Tander extends javax.swing.JFrame {
     private javax.swing.JTextField tf_user;
     // End of variables declaration//GEN-END:variables
     //ArrayList<Usuario> lista_usuarios = new ArrayList<>();
+    String actual = "";
 }
